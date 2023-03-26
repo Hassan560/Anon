@@ -3,12 +3,12 @@ import Faq from 'react-faq-component';
 import { QuesData } from '../Data';
 import './Ques.css';
 
-const styles = {
-    bgColor: 'white',
-    titleTextColor: "black",
-    rowTitleColor: "black",
-    border: '1px solid black'
-};
+// const styles = {
+//     bgColor: 'white',
+//     titleTextColor: "black",
+//     rowTitleColor: "black",
+//     border: '1px solid black'
+// };
 const config = {
     tabFocus: true,
     expandIcon: "+",

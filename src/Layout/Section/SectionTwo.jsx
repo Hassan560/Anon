@@ -17,7 +17,6 @@ const SectionTwo = () => {
       <div className="sectionTwo" id="About">
         <div className="text"
         >
-          {/* style={{ width: "410px", marginTop: "140px" }}  */}
           <div style={{ display: "flex", alignItems: "center" }} >
             <img src={logo1} alt="logo1" style={{ width: "60px" }} />
             <h3

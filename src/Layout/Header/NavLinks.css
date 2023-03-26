@@ -1,0 +1,15 @@
+.nav{
+    flex: 0.6;
+}
+.nav>ul {
+    width: 450px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav>ul>li {
+    cursor: pointer;
+    text-transform: uppercase;
+    color: #02073E
+}

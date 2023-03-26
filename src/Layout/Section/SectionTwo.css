@@ -1,0 +1,43 @@
+.sectionTwo {
+  position: relative;
+  top: 40px;
+  margin: 0px auto;
+  padding: 40px 140px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.text {
+  width: 500px;
+}
+.sectionTwo1 {
+  position: relative;
+  top: 40px;
+  margin: 0px auto;
+  padding: 40px 120px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.sectionTwo1_Line {
+  height: 210px;
+  width: 1.5px;
+  position: absolute;
+  top: 160px;
+  background-color: #ac9e9e;
+  left: 778px;
+}
+.sectionTwo1_left {
+  width: 540px;
+}
+.aboutlogo > img {
+  width: 600px;
+  height: 600px;
+  background-color: #e5e5e5;
+  border-radius: 430px;
+}
+
+/* .aboutlogo{
+    min-width: 50%;
+
+} */

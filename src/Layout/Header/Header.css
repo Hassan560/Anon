@@ -1,0 +1,45 @@
+.head {
+    height: 70px;
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+    transition: all;
+    transition-duration: 450ms;
+    height: 90px;
+}
+
+.head.active {
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 12px;
+}
+
+.header_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 120px;
+  flex-wrap: wrap;
+  height: 70px;
+  cursor: pointer;
+}
+
+.header_container_head {
+  font-family: "DM Sans";
+  cursor: pointer;
+}
+
+.header_container > .btn1 {
+  background-color: #ffffff;
+  width: 150px;
+  height: 50px;
+  border: 0px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  color: #fc1c26;
+  box-shadow: 1px 1px 6px gray;
+  z-index: 1;
+}

@@ -1,0 +1,24 @@
+.contribute {
+  position: relative;
+  top: 40px;
+}
+.contributeBox {
+  position: absolute;
+  top: 850px;
+  left: 750px;
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+}
+.blueBack {
+  width: 100%;
+  height: 635px;
+  margin: 1px 0px;
+}
+
+.manLogo {
+  position: absolute;
+  left: 20px;
+  top: 530px;
+  width: 740px;
+}

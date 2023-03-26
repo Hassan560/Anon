@@ -14,7 +14,6 @@ import image from "../../assets/Images/image.png";
 // headercss
 import "./Header.css";
 import '../../Mobile.css';
-import { blue } from "@mui/material/colors";
 
 const Header = () => {
   // changing navbar color state

@@ -7,7 +7,6 @@ import { Link } from 'react-scroll'
 import { navigation } from '../../Data'
 
 // motion framer
-import { motion } from 'framer-motion'
 
 // mobile css
 import './Mobile.css'

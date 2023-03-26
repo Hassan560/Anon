@@ -1,6 +1,4 @@
 import React from "react";
-import { Box } from "@mui/material";
-// import {boxData} from '../Data';
 
 const SectionBox = ({ icon, text, inner }) => {
   return (

@@ -106,7 +106,6 @@ const Section = () => {
         </div>
         <div className="section__right">
           <img src={SectionLogo} alt="SectionLogo" className="logo" />
-          {/* <ImageSlide /> */}
         </div>
       </div>
     </div>

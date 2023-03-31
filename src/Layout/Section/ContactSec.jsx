@@ -3,19 +3,23 @@ import React from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import ContactBox from "../../Components/ContactBox";
 import Question from "../../Components/Question";
-import laptopMan from '../../assets/Images/laptopMan.png'
-import diamond from '../../assets/Images/diamond.png'
-import FreeLogo from '../../assets/Images/Free.png'
+import laptopMan from "../../assets/Images/laptopMan.png";
+import diamond from "../../assets/Images/diamond.png";
+import FreeLogo from "../../assets/Images/Free.png";
+import { useSelector, useDispatch } from "react-redux";
+import { google,facebook} from "../../redux/actions/userAction";
 
-import './ContactSec.css';
-import '../../Mobile.css';
+import "./ContactSec.css";
+import "../../Mobile.css";
 
 const ContactSec = () => {
+  const dispatch = useDispatch();
+
+  const fun = () => {
+    dispatch(facebook());
+  };
   return (
-    <div
-      className="contact"
-      id="DMCA"
-    >
+    <div className="contact" id="DMCA">
       <div
         style={{
           display: "flex",
@@ -59,9 +63,14 @@ const ContactSec = () => {
               color: "#C0C0C0",
             }}
           >
-            <input type="text" placeholder="Ask any question..." style={{ outline: 'none', border: 'none' }} />
+            <input
+              type="text"
+              placeholder="Ask any question..."
+              style={{ outline: "none", border: "none" }}
+            />
           </p>
           <button
+            onClick={fun}
             style={{
               backgroundColor: "#FC1C26",
               width: "124px",
@@ -91,7 +100,11 @@ const ContactSec = () => {
         container
         spacing={{ xs: 2, md: 3 }}
         columns={{ xs: 4, sm: 8, md: 14 }}
-        style={{ display: "flex", justifyContent: 'center', padding: '0px 120px' }}
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          padding: "0px 120px",
+        }}
       >
         <Grid item xs={2} sm={4} md={4}>
           <ContactBox text="Freebie Services" icon={FreeLogo} />

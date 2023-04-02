@@ -38,10 +38,12 @@ export const register = (email, password) => async (dispatch) => {
     );
 
     const res = registerData?.user;
+    console.log(res)
 
     dispatch({ type: REGISTER_SUCCESSFULL, payload: res });
   } catch (error) {
     dispatch({ type: REGISTER_FAIL, payload: error?.message });
+    console.log(error?.message)
   }
 };
 
@@ -55,6 +57,7 @@ export const login = (email, password) => async (dispatch) => {
     dispatch({ type: LOGIN_SUCCESSFULL, payload: res });
   } catch (error) {
     dispatch({ type: LOGIN_FAIL, payload: error?.message });
+    console.log(error?.message)
   }
 };
 

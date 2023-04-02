@@ -39,10 +39,10 @@ export default function DialogBox({ dialogOpen, setDialogOpen }) {
         })
     }
 
-    const handleRegisterSubmit = (event) => {
-        event.preventDefault()
-        register(user.email, user.password)
-    }
+    // const handleRegisterSubmit = (event) => {
+    //     event.preventDefault()
+    //     register(user.email, user.userPassword)
+    // }
 
     // password show and hide
     const [showPassword, setShowPassword] = React.useState(false);
@@ -70,7 +70,7 @@ export default function DialogBox({ dialogOpen, setDialogOpen }) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        login(useremail, password)
+       dispatch(login(useremail, password)) 
         console.log(`Username: ${useremail}, Password: ${password}`);
         // do something with the username and password, like sending it to a server
     };
@@ -85,6 +85,12 @@ export default function DialogBox({ dialogOpen, setDialogOpen }) {
     const facebookLogin = () => {
         dispatch(facebook())
         setDialogOpen(false)
+    }
+
+    const handleClickRegister =(event) =>{
+        event.preventDefault()
+     dispatch(register(user.email, user.userPassword))   
+        console.log(`user ${user.email} password ${user.userPassword}`)
     }
     return (
         <BootstrapDialog
@@ -204,7 +210,7 @@ export default function DialogBox({ dialogOpen, setDialogOpen }) {
                                 label="Password"
                             />
                         </FormControl>
-                        <Button fullWidth variant='contained' type='submit' style={{ backgroundColor: '#12225c' }}>Register</Button>
+                        <Button fullWidth variant='contained' type='submit' style={{ backgroundColor: '#12225c' }} onClick={handleClickRegister}>Register</Button>
                         <p style={{ fontSize: '12px', textAlign: 'center' }}>Already have an account? <span style={{
                             fontWeight: 700,
                             color: '#12225c',

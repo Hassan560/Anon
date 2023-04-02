@@ -6,18 +6,11 @@ import Question from "../../Components/Question";
 import laptopMan from "../../assets/Images/laptopMan.png";
 import diamond from "../../assets/Images/diamond.png";
 import FreeLogo from "../../assets/Images/Free.png";
-import { useSelector, useDispatch } from "react-redux";
-import { google,facebook} from "../../redux/actions/userAction";
 
 import "./ContactSec.css";
 import "../../Mobile.css";
 
 const ContactSec = () => {
-  const dispatch = useDispatch();
-
-  const fun = () => {
-    dispatch(facebook());
-  };
   return (
     <div className="contact" id="DMCA">
       <div
@@ -70,7 +63,6 @@ const ContactSec = () => {
             />
           </p>
           <button
-            onClick={fun}
             style={{
               backgroundColor: "#FC1C26",
               width: "124px",

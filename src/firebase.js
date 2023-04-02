@@ -6,13 +6,13 @@ import {
 } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBpNLb5jTzpe4PQCULk5OOrvoZA_pVK0A0",
-  authDomain: "anon-b17c3.firebaseapp.com",
-  projectId: "anon-b17c3",
-  storageBucket: "anon-b17c3.appspot.com",
-  messagingSenderId: "791489347443",
-  appId: "1:791489347443:web:e3f7c6155fa6424a864f06",
-  measurementId: "G-DYDC8LDBVP",
+  apiKey: "AIzaSyAHomPncpXRlN1DK3C8ANVd7C8iX-FRxWk",
+  authDomain: "checkapp-3f905.firebaseapp.com",
+  projectId: "checkapp-3f905",
+  storageBucket: "checkapp-3f905.appspot.com",
+  messagingSenderId: "804396683729",
+  appId: "1:804396683729:web:a42f5b026600de63a450f0",
+  measurementId: "G-QKPW03S1PD"
 };
 
 const app = initializeApp(firebaseConfig);

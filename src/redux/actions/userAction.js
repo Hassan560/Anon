@@ -51,7 +51,7 @@ export const login = (email, password) => async (dispatch) => {
     const loginData = await signInWithEmailAndPassword(auth, email, password);
 
     const res = loginData?.user;
-
+    console.log(res)
     dispatch({ type: LOGIN_SUCCESSFULL, payload: res });
   } catch (error) {
     dispatch({ type: LOGIN_FAIL, payload: error?.message });
@@ -86,18 +86,22 @@ export const facebook = () => async (dispatch) => {
   try {
     signInWithPopup(auth, fbProvider)
       .then((result) => {
+        const credential = FacebookAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        console.log(token);
+
         const user = result.user;
 
-  console.log(user)
-      
+        console.log(user);
+        dispatch({ type: FACEBOOK_SUCCESSFULL, payload: user });
       })
       .catch((err) => {
-        console.log("promise error",err);
+        console.log("promise error", err);
         // dispatch({ type: FACEBOOK_FAIL, payload: err?.message });
       });
   } catch (err) {
     dispatch({ type: FACEBOOK_FAIL, payload: err?.message });
-    console.log(err)
+    console.log(err);
   }
 };
 

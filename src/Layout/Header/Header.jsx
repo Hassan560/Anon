@@ -14,15 +14,18 @@ import image from "../../assets/Images/image.png";
 // headercss
 import "./Header.css";
 import '../../Mobile.css';
+import DialogBox from "../../Components/DialogBox";
 
 const Header = () => {
   // changing navbar color state
   const [navbarColor, setNavbarColor] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   const changeBackground = () => {
     if (window.scrollY >= 50) {
       setNavbarColor(true);
-    } else {
+    }
+    else {
       setNavbarColor(false);
     }
   };
@@ -48,9 +51,10 @@ const Header = () => {
         </Link>
         <Nav />
 
-        <button className="btn1">Explore</button>
+        <button className="btn1" onClick={() => setDialogOpen(true)}>Explore</button>
         <NavMobile />
       </div>
+      <DialogBox dialogOpen={dialogOpen} setDialogOpen={setDialogOpen} />
     </header>
   );
 };

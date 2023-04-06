@@ -20,12 +20,12 @@ import {
   GOOGLE_FAIL,
   FACEBOOK_SUCCESSFULL,
   FACEBOOK_FAIL,
-  APPLE_SUCCESSFULL,
-  APPLE_FAIL,
+  // APPLE_SUCCESSFULL,
+  // APPLE_FAIL,
   LOAD_SUCCESS,
   LOAD_FAIL,
 } from "../constant/AuthConstant";
-import { async } from "@firebase/util";
+
 
 // register
 
@@ -38,7 +38,6 @@ export const register = (email, password) => async (dispatch) => {
     );
 
     const res = registerData?.user;
-    console.log(res)
 
     dispatch({ type: REGISTER_SUCCESSFULL, payload: res });
   } catch (error) {
@@ -53,7 +52,6 @@ export const login = (email, password) => async (dispatch) => {
     const loginData = await signInWithEmailAndPassword(auth, email, password);
 
     const res = loginData?.user;
-    console.log(res)
     dispatch({ type: LOGIN_SUCCESSFULL, payload: res });
   } catch (error) {
     dispatch({ type: LOGIN_FAIL, payload: error?.message });
@@ -95,7 +93,6 @@ export const facebook = () => async (dispatch) => {
 
         const user = result.user;
 
-        console.log(user);
         dispatch({ type: FACEBOOK_SUCCESSFULL, payload: user });
       })
       .catch((err) => {

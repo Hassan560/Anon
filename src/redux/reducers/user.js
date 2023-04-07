@@ -16,7 +16,6 @@ import {
 } from "../constant/AuthConstant";
 
 export const userReducer = (state = { user: {} }, action) => {
-  console.log(action.payload);
   switch (action.type) {
     case REGISTER_SUCCESSFULL:
     case LOGIN_SUCCESSFULL:

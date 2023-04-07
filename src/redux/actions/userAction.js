@@ -20,9 +20,18 @@ import {
   GOOGLE_FAIL,
   FACEBOOK_SUCCESSFULL,
   FACEBOOK_FAIL,
+<<<<<<< HEAD
   LOAD_SUCCESS,
   LOAD_FAIL,
 } from "../constant/AuthConstant";
+=======
+  // APPLE_SUCCESSFULL,
+  // APPLE_FAIL,
+  LOAD_SUCCESS,
+  LOAD_FAIL,
+} from "../constant/AuthConstant";
+
+>>>>>>> 74f9cffb403686a785a4040bd214d5dbafdbcaee
 
 // register
 
@@ -35,6 +44,10 @@ export const register = (email, password) => async (dispatch) => {
     );
 
     const res = registerData?.user;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 74f9cffb403686a785a4040bd214d5dbafdbcaee
     dispatch({ type: REGISTER_SUCCESSFULL, payload: res });
     alert('User Registerd Successfully')
   } catch (error) {
@@ -91,7 +104,6 @@ export const facebook = () => async (dispatch) => {
 
         const user = result.user;
 
-        console.log(user);
         dispatch({ type: FACEBOOK_SUCCESSFULL, payload: user });
       })
       .catch((err) => {

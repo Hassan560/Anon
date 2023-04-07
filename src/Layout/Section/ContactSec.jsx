@@ -91,7 +91,7 @@ const ContactSec = () => {
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}
-        columns={{ xs: 4, sm: 8, md: 14 }}
+        columns={{ xs: 2, sm: 8, md: 14 }}
         style={{
           display: "flex",
           justifyContent: "center",

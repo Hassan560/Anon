@@ -9,13 +9,10 @@ import { navigation } from '../../Data'
 // react scroll
 import { Link } from 'react-scroll'
 
-// framer motion
-import { motion } from 'framer-motion'
-
 // mobile css
 import './NavMobile.css'
 
-const NavMobile = () => {
+const NavMobile = ({ setDialogOpen }) => {
 
   const [sideBar, setSideBar] = useState(false)
 
@@ -31,15 +28,11 @@ const NavMobile = () => {
       <div className={sideBar ? 'nav_menu active' : 'nav_menu'}>
         <ul className='nav_menu_items' onClick={showSideBar}>
           <li className='navbar_toggle' >
-            <HiOutlineX size={35} />
+            <HiOutlineX size={35} color='white' />
           </li>
           {
             navigation.map((elem, index) => (
-              <motion.li
-                whileHover={{ scale: 1.3, color: '#fd6c4d' }}
-                whileTap={{ scale: 1.3 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-                key={index} className="nav_text">
+              <li className='nav_text' key={index}>
                 <Link
                   onClick={showSideBar}
                   to={elem.href}
@@ -51,9 +44,10 @@ const NavMobile = () => {
                   className='transition-all duration-300'>
                   {elem.name}
                 </Link>
-              </motion.li>
+              </li>
             ))
           }
+          <button className="btn1" onClick={() => setDialogOpen(true)}>Explore</button>
         </ul>
       </div>
     </div>

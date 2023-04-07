@@ -53,7 +53,7 @@ const ContributeSec = () => {
             <Grid
                 container
                 spacing={{ xs: 2, md: 1 }}
-                columns={{ xs: 4, sm: 8, md: 20 }}
+                columns={{ xs: 2, sm: 8, md: 20 }}
                 style={{
                     display: "flex",
                     justifyContent: "center",

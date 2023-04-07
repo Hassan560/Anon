@@ -18,19 +18,9 @@ const Footer = () => {
     return (
         <div className='foter' id="Contact">
             <img src={BlueLogo} alt="blueLogo" width='100%' />
-            <div style={{ position: 'relative', top: '-400px', display: 'flex', flexDirection: 'column', alignItems: "center" }}>
-                <h1 style={{
-                    fontFamily: "Poppins",
-                    fontWeight: 500,
-                    fontSize: "48px",
-                    color: 'white'
-                }}>Sign Up For Out Newsletter</h1>
-                <p style={{
-                    fontFamily: "DM Sans",
-                    fontWeight: 500,
-                    fontSize: "18px",
-                    color: 'white'
-                }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            <div className='footerOne'>
+                <h1>Sign Up For Out Newsletter</h1>
+                <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 </p>
                 <div
                     style={{

@@ -28,7 +28,7 @@ export const userReducer = (state = { user: {} }, action) => {
       };
 
     case FACEBOOK_SUCCESSFULL:
-    case LOAD_SUCCESS:
+    case LOAD_SUCCESS: // eslint-disable-next-line
       return {
         ...state,
         isAuthenticated: true,
@@ -36,7 +36,7 @@ export const userReducer = (state = { user: {} }, action) => {
       };
 
     case GOOGLE_SUCCESSFULL:
-    case LOAD_SUCCESS:
+    case LOAD_SUCCESS: // eslint-disable-next-line
       return {
         ...state,
         isAuthenticated: true,
@@ -44,7 +44,7 @@ export const userReducer = (state = { user: {} }, action) => {
       };
 
     case APPLE_SUCCESSFULL:
-    case LOAD_SUCCESS:
+    case LOAD_SUCCESS: // eslint-disable-next-line
       return {
         ...state,
         isAuthenticated: true,

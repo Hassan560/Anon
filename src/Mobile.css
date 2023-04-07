@@ -1,3 +1,8 @@
+@media screen and (max-width: 1420px) {
+  .footerOne {
+    top: -360px !important;
+  }
+}
 @media screen and (max-width: 1497px) {
   .logo {
     width: 650px;
@@ -133,6 +138,12 @@
 }
 
 @media screen and (max-width: 1043px) {
+  .faq-style-wrapper .faq-body .faq-row .row-title {
+    font-size: 15px !important;
+  }
+  .contact_faq {
+    padding: 60px 210px !important;
+  }
   .nav > ul {
     width: 350px !important;
     padding-left: 0px !important;
@@ -142,6 +153,10 @@
   }
 }
 @media screen and (max-width: 1011px) {
+  .btn1 {
+    width: 200px !important;
+    margin-left: 50px;
+  }
   .nav {
     display: none;
   }
@@ -177,7 +192,19 @@
     margin-left: -230px !important;
     gap: 230px !important;
   }
-  .btn1 {
-    width: 100% !important;
+  .contact_faq {
+    padding: 60px 160px !important;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .contact_faq {
+    padding: 60px 100px !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .contact_faq {
+    padding: 60px 30px !important;
   }
 }

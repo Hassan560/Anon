@@ -50,9 +50,8 @@ const Header = () => {
           </div>
         </Link>
         <Nav />
-
         <button className="btn1" onClick={() => setDialogOpen(true)}>Explore</button>
-        <NavMobile />
+        <NavMobile setDialogOpen={setDialogOpen} />
       </div>
       <DialogBox dialogOpen={dialogOpen} setDialogOpen={setDialogOpen} />
     </header>

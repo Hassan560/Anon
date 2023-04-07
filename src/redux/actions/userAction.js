@@ -20,12 +20,9 @@ import {
   GOOGLE_FAIL,
   FACEBOOK_SUCCESSFULL,
   FACEBOOK_FAIL,
-  APPLE_SUCCESSFULL,
-  APPLE_FAIL,
   LOAD_SUCCESS,
   LOAD_FAIL,
 } from "../constant/AuthConstant";
-import { async } from "@firebase/util";
 
 // register
 
@@ -38,12 +35,11 @@ export const register = (email, password) => async (dispatch) => {
     );
 
     const res = registerData?.user;
-    console.log(res)
-
     dispatch({ type: REGISTER_SUCCESSFULL, payload: res });
+    alert('User Registerd Successfully')
   } catch (error) {
     dispatch({ type: REGISTER_FAIL, payload: error?.message });
-    console.log(error?.message)
+    alert(error?.message);
   }
 };
 
@@ -53,11 +49,11 @@ export const login = (email, password) => async (dispatch) => {
     const loginData = await signInWithEmailAndPassword(auth, email, password);
 
     const res = loginData?.user;
-    console.log(res)
     dispatch({ type: LOGIN_SUCCESSFULL, payload: res });
+    alert('User Login successfully')
   } catch (error) {
     dispatch({ type: LOGIN_FAIL, payload: error?.message });
-    console.log(error?.message)
+    alert(error?.message);
   }
 };
 
@@ -69,7 +65,7 @@ export const google = () => async (dispatch) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
 
-        console.log(token);
+        localStorage.setItem('token', JSON.stringify(token))
         const user = result?.user;
 
         dispatch({ type: GOOGLE_SUCCESSFULL, payload: user });
@@ -79,7 +75,7 @@ export const google = () => async (dispatch) => {
       });
   } catch (error) {
     dispatch({ type: GOOGLE_FAIL, payload: error?.message });
-    console.log(error?.message);
+    alert(error?.message);
   }
 };
 

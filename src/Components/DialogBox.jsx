@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Dialog from '@mui/material/Dialog';
-import { TextField, Button, Box, FormControl, InputLabel, OutlinedInput, InputAdornment, IconButton, Container } from '@mui/material';
+import { TextField, Button, FormControl, InputLabel, OutlinedInput, InputAdornment, IconButton } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import ManLogo from '../assets/Images/man.png';
 import styled from '@emotion/styled';
@@ -39,11 +39,6 @@ export default function DialogBox({ dialogOpen, setDialogOpen }) {
         })
     }
 
-    // const handleRegisterSubmit = (event) => {
-    //     event.preventDefault()
-    //     register(user.email, user.userPassword)
-    // }
-
     // password show and hide
     const [showPassword, setShowPassword] = React.useState(false);
     const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -70,9 +65,9 @@ export default function DialogBox({ dialogOpen, setDialogOpen }) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-       dispatch(login(useremail, password)) 
-        console.log(`Username: ${useremail}, Password: ${password}`);
-        // do something with the username and password, like sending it to a server
+        dispatch(login(useremail, password))
+        setUseremail('')
+        setPassword('')
     };
 
     // google 
@@ -87,10 +82,13 @@ export default function DialogBox({ dialogOpen, setDialogOpen }) {
         setDialogOpen(false)
     }
 
-    const handleClickRegister =(event) =>{
+    const handleClickRegister = (event) => {
         event.preventDefault()
-     dispatch(register(user.email, user.userPassword))   
-        console.log(`user ${user.email} password ${user.userPassword}`)
+        dispatch(register(user.email, user.userPassword))
+        setUser({
+            email: '',
+            userPassword: ''
+        })
     }
     return (
         <BootstrapDialog
@@ -98,12 +96,25 @@ export default function DialogBox({ dialogOpen, setDialogOpen }) {
             aria-labelledby="customized-dialog-title"
             open={dialogOpen}
         >
-            <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', alignItems: 'center', width: '850px' }}>
+            <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                alignItems: 'center',
+                width: '850px'
+            }}>
                 {
                     loginForm ? (
                         <form onSubmit={handleSubmit} autoComplete='off'>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: 20, width: '340px', padding: '10px 30px', overflow: 'hidden' }}>
-                                <img src={Logo} alt="image" style={{ width: '200px', alignSelf: 'center' }} />
+                            <div style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: 20,
+                                width: '340px',
+                                padding: '10px 30px',
+                                overflow: 'hidden'
+                            }}>
+                                <img src={Logo} alt="logo" style={{ width: '200px', alignSelf: 'center' }} />
                                 <TextField
                                     sx={{
                                         "& .MuiInputLabel-root": { color: '#12225c' },
@@ -149,81 +160,119 @@ export default function DialogBox({ dialogOpen, setDialogOpen }) {
                                     />
                                 </FormControl>
                                 <div style={{ display: 'flex', gap: 3 }}>
-                                    <Button fullWidth variant='contained' type='submit' style={{ backgroundColor: '#12225c' }}>Log In</Button>
-                                    <Button fullWidth variant='outlined' style={{ border: '1px solid #12225c', color: '#12225c' }} onClick={() => setLoginForm(false)}>Create Account</Button>
+                                    <Button
+                                        fullWidth
+                                        variant='contained'
+                                        type='submit'
+                                        style={{ backgroundColor: '#12225c' }}>
+                                        Log In
+                                    </Button>
+                                    <Button
+                                        fullWidth
+                                        variant='outlined'
+                                        style={{ border: '1px solid #12225c', color: '#12225c' }}
+                                        onClick={() => setLoginForm(false)}>
+                                        Create Account
+                                    </Button>
                                 </div>
 
                                 <p style={{ textAlign: 'center', margin: '0px', fontSize: '12px' }}>Or Sign In With</p>
 
                                 <div style={{ display: 'flex', gap: 3 }}>
-                                    <Button fullWidth variant='outlined' style={{ border: '1px solid #FA4335', color: '#FA4335' }} startIcon={< GoogleIcon />} onClick={googleLogin}> Google</Button>
-                                    <Button fullWidth variant='contained' style={{ backgroundColor: '#3B5998' }} startIcon={<FacebookIcon />} onClick={facebookLogin}>Facebook</Button>
+                                    <Button
+                                        fullWidth
+                                        variant='outlined'
+                                        style={{ border: '1px solid #FA4335', color: '#FA4335' }}
+                                        startIcon={< GoogleIcon />}
+                                        onClick={googleLogin}>
+                                        Google
+                                    </Button>
+                                    <Button
+                                        fullWidth
+                                        variant='contained'
+                                        style={{ backgroundColor: '#3B5998' }}
+                                        startIcon={<FacebookIcon />}
+                                        onClick={facebookLogin}>
+                                        Facebook
+                                    </Button>
                                 </div>
                             </div>
                         </form>
-                    ) : <div style={{ display: 'flex', flexDirection: 'column', gap: 20, width: '340px', padding: '10px 30px', overflow: 'hidden' }}>
-                        <h2 style={{ margin: '0px', color: '#12225c' }}>Register Now</h2>
-                        {/* <TextField sx={{
+                    ) : <form onSubmit={handleClickRegister} autoComplete='off'>
+                        <div style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 20,
+                            width: '340px',
+                            padding: '10px 30px',
+                            overflow: 'hidden'
+                        }}>
+                            <h2 style={{ margin: '0px', color: '#12225c' }}>Register Now</h2>
+                            <TextField sx={{
                                 "& .MuiInputLabel-root": { color: "#12225c" },
                                 "& .MuiOutlinedInput-root.Mui-focused": {
                                     "& > fieldset": {
                                         borderColor: "#12225c"
                                     }
                                 }
-                            }} fullWidth label="Username" value={user.name} name='name' required onChange={handleRegisterChange} /> */}
-                        <TextField sx={{
-                            "& .MuiInputLabel-root": { color: "#12225c" },
-                            "& .MuiOutlinedInput-root.Mui-focused": {
-                                "& > fieldset": {
-                                    borderColor: "#12225c"
-                                }
-                            }
-                        }} fullWidth label="Email" value={user.email} name="email" required onChange={handleRegisterChange} />
-                        <FormControl fullWidth variant="outlined" sx={{
-                            "& .MuiInputLabel-root": { color: "#12225c" },
-                            "& .MuiOutlinedInput-root.Mui-focused": {
-                                "& > fieldset": {
-                                    borderColor: "#12225c"
-                                }
-                            }
-                        }}>
-                            <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-                            <OutlinedInput
-                                id="outlined-adornment-password"
-                                type={showPassword ? 'text' : 'password'}
-                                value={user.userPassword}
-                                name="userPassword"
+                            }}
+                                fullWidth
+                                label="Email"
+                                value={user.email}
+                                name="email"
                                 required
-                                onChange={handleRegisterChange}
-                                endAdornment={
-                                    <InputAdornment position="end">
-                                        <IconButton
-                                            aria-label="toggle password visibility"
-                                            onClick={handleClickShowPassword}
-                                            onMouseDown={handleMouseDownPassword}
-                                            edge="end"
-                                        >
-                                            {showPassword ? <VisibilityOff /> : <Visibility />}
-                                        </IconButton>
-                                    </InputAdornment>
+                                onChange={handleRegisterChange} />
+                            <FormControl fullWidth variant="outlined" sx={{
+                                "& .MuiInputLabel-root": { color: "#12225c" },
+                                "& .MuiOutlinedInput-root.Mui-focused": {
+                                    "& > fieldset": {
+                                        borderColor: "#12225c"
+                                    }
                                 }
-                                label="Password"
-                            />
-                        </FormControl>
-                        <Button fullWidth variant='contained' type='submit' style={{ backgroundColor: '#12225c' }} onClick={handleClickRegister}>Register</Button>
-                        <p style={{ fontSize: '12px', textAlign: 'center' }}>Already have an account? <span style={{
-                            fontWeight: 700,
-                            color: '#12225c',
-                            cursor: 'pointer',
-                            fontSize: '13px'
-                        }} onClick={() => setLoginForm(true)}>Log In</span></p>
-                    </div>
+                            }}>
+                                <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                                <OutlinedInput
+                                    id="outlined-adornment-password"
+                                    type={showPassword ? 'text' : 'password'}
+                                    value={user.userPassword}
+                                    name="userPassword"
+                                    required
+                                    onChange={handleRegisterChange}
+                                    endAdornment={
+                                        <InputAdornment position="end">
+                                            <IconButton
+                                                aria-label="toggle password visibility"
+                                                onClick={handleClickShowPassword}
+                                                onMouseDown={handleMouseDownPassword}
+                                                edge="end"
+                                            >
+                                                {showPassword ? <VisibilityOff /> : <Visibility />}
+                                            </IconButton>
+                                        </InputAdornment>
+                                    }
+                                    label="Password"
+                                />
+                            </FormControl>
+                            <Button
+                                fullWidth
+                                variant='contained'
+                                type='submit'
+                                style={{ backgroundColor: '#12225c' }} >
+                                Register
+                            </Button>
+                            <p style={{ fontSize: '12px', textAlign: 'center' }}>Already have an account? <span style={{
+                                fontWeight: 700,
+                                color: '#12225c',
+                                cursor: 'pointer',
+                                fontSize: '13px'
+                            }} onClick={() => setLoginForm(true)}>Log In</span></p>
+                        </div>
+                    </form>
                 }
-                {/* </form> */}
                 <div style={{ backgroundColor: '#12225c' }}>
                     <img src={ManLogo} alt="manlogo" style={{ width: '450px' }} />
                 </div>
             </div >
-        </BootstrapDialog >
+        </BootstrapDialog>
     );
 }
